@@ -1,0 +1,11 @@
+/Users/akk000f/Projects/MongoConnector/MongoConnector/bin/Debug/netcoreapp2.1/MongoConnector.deps.json
+/Users/akk000f/Projects/MongoConnector/MongoConnector/bin/Debug/netcoreapp2.1/MongoConnector.runtimeconfig.json
+/Users/akk000f/Projects/MongoConnector/MongoConnector/bin/Debug/netcoreapp2.1/MongoConnector.runtimeconfig.dev.json
+/Users/akk000f/Projects/MongoConnector/MongoConnector/bin/Debug/netcoreapp2.1/MongoConnector.dll
+/Users/akk000f/Projects/MongoConnector/MongoConnector/bin/Debug/netcoreapp2.1/MongoConnector.pdb
+/Users/akk000f/Projects/MongoConnector/MongoConnector/obj/Debug/netcoreapp2.1/MongoConnector.csprojAssemblyReference.cache
+/Users/akk000f/Projects/MongoConnector/MongoConnector/obj/Debug/netcoreapp2.1/MongoConnector.csproj.CoreCompileInputs.cache
+/Users/akk000f/Projects/MongoConnector/MongoConnector/obj/Debug/netcoreapp2.1/MongoConnector.AssemblyInfoInputs.cache
+/Users/akk000f/Projects/MongoConnector/MongoConnector/obj/Debug/netcoreapp2.1/MongoConnector.AssemblyInfo.cs
+/Users/akk000f/Projects/MongoConnector/MongoConnector/obj/Debug/netcoreapp2.1/MongoConnector.dll
+/Users/akk000f/Projects/MongoConnector/MongoConnector/obj/Debug/netcoreapp2.1/MongoConnector.pdb
