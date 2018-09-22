@@ -24,7 +24,7 @@ namespace MongoResultWrapper
             mongoClient = new MongoClient(databaseConnectionString);
         }
 
-        public async Task<String> executeFind(String findParameter, String database, String collection, String filePath = null) {
+        public String executeFind(String findParameter, String database, String collection, String filePath = null) {
             if (mongoClient == null) {
                 connectToMongo();
             }
@@ -35,11 +35,9 @@ namespace MongoResultWrapper
                    .BsonSerializer.Deserialize<BsonDocument>(findParameter);
 
             String result = "";
-            await collectionObject.Find(doc).ForEachAsync(song =>
-            {
-                result += song;
-                Console.Write(song);
-            });
+            System.Collections.Generic.List<BsonDocument> listOfDocuments = collectionObject.FindSync(doc).ToList();
+
+            result = listOfDocuments.ToJson().ToString();
 
             if (filePath != null)
             {
@@ -49,7 +47,8 @@ namespace MongoResultWrapper
             }
             return result;
         }
-        public async void  executeInsert(String bsonString, String database, String collection)
+
+        public void  executeInsert(String bsonString, String database, String collection)
         {
             if (mongoClient == null)
             {
@@ -58,12 +57,11 @@ namespace MongoResultWrapper
             var db = mongoClient.GetDatabase(database);
             var collectionObject = db.GetCollection<BsonDocument>(collection);
 
-            BsonDocument doc = MongoDB.Bson.Serialization
-                   .BsonSerializer.Deserialize<BsonDocument>(bsonString);
+            BsonDocument [] doc = MongoDB.Bson.Serialization
+                   .BsonSerializer.Deserialize<BsonDocument[]>(bsonString);
+                                         
 
-            BsonDocument[] seedData = { doc };
-
-            await collectionObject.InsertManyAsync(seedData);
+            collectionObject.InsertMany(doc);
         }
 
     }
