@@ -6,7 +6,7 @@ using System.Text;
 using System.ComponentModel;
 
 using MongoDB.Driver.Linq;
-
+using System.IO;
 
 namespace MongoResultWrapper
 {
@@ -24,7 +24,7 @@ namespace MongoResultWrapper
             mongoClient = new MongoClient(databaseConnectionString);
         }
 
-        public async Task<String> executeFind(String findParameter, String database, String collection) {
+        public async Task<String> executeFind(String findParameter, String database, String collection, String filePath = null) {
             if (mongoClient == null) {
                 connectToMongo();
             }
@@ -41,6 +41,12 @@ namespace MongoResultWrapper
                 Console.Write(song);
             });
 
+            if (filePath != null)
+            {
+                StreamWriter sw = new StreamWriter(filePath, false);
+                sw.WriteLine(result);
+                sw.Close();
+            }
             return result;
         }
         public async void  executeInsert(String bsonString, String database, String collection)
